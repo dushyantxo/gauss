@@ -145,25 +145,25 @@ Question 9.3.3
 On a multiple choice examination with three possible answers for each of the five
 questions, what is the probability that a candidate would get four or more correct?\\
 \solution\\
-\textbf{Binomial}
+\begin{table}[ht]
+    \centering
+    \caption{Random Variables}
+    \label{table:random-variables-9.3.14}
+\begin{tabular}{|c|c|c|}
+\hline
+Variable & Value & Description \\
+\hline
+$X$ & $0 \le X \le 5$ & Number of correct questions \\
+\hline
+\end{tabular} 
+\end{table}\\
 \begin{align}
 	p&=\frac{1}{3}\\
 	n&=5
 \end{align}
-Let X be a Binomial random variable with parameters p and n
+\textbf{Binomial}
 \begin{align}
-	\pr{X=k}&=\comb{n}{k}p^k\brak{1-p}^{n-k}\\
-	&=\comb{10}{k}\brak{\frac{1}{3}}^k\brak{\frac{2}{3}}^{5-k}
-\end{align}
-CDF of X
-\begin{align}
-	F_X\brak{n}&=\pr{X \geq n}\\
-	&=\sum_{k=0}^{n}\pr{X=k}\\
-	&=\sum_{k=0}^{n}\comb{5}{k}\brak{\frac{1}{3}}^k\brak{\frac{2}{3}}^{5-k}
-\end{align}
-Since, according to question n here equals,
-\begin{align}
-	\implies F_X\brak{X\geq 4}&=\sum_{k=4}^{5}\comb{5}{k}\brak{\frac{1}{3}}^k\brak{\frac{2}{3}}^{5-k}\\
+	\implies P\brak{X\geq 4}&=\sum_{k=4}^{5}\comb{5}{k}\brak{\frac{1}{3}}^k\brak{\frac{2}{3}}^{5-k}\\
 	&=\frac{11}{243}\\
 	&=0.04526
 \end{align}
@@ -172,23 +172,21 @@ Since, according to question n here equals,
 	X &\sim Bin\brak{n,p}\\
 	&\sim Bin\brak{5,\frac{1}{3}}
 \end{align}
-Mean and Varience of X are
+Mean and Varience of X are\\
 \begin{align}
-	\mu_X&=np\\
-	&=\frac{5}{3}\\
-	\sigma^2_X&=np\brak{1-p}\\
-	&=\frac{10}{9}
+	\mu_X&=n\times p=\frac{5}{3}\\
+	\sigma^2_X&=np\brak{1-p}=\frac{10}{9}\\
 \end{align}
 Let, Z be a random variable with mean $\mu_Z=0$ and $\sigma_Z=1$ such that,\\
 \begin{align}
-	Z&=\frac{X-\mu_X +0.5}{\sigma_X}\\
+	Z&\approx\frac{X-\mu_X +0.5}{\sigma_X}\\
 	&\approx 1.74604
 \end{align}
 0.5 is added for correction.\\Z converges to normal distribution for large value of n\\
 \begin{align}
-	f\brak{x}&=\frac{1}{\sqrt{2\pi}}e^{-\frac{x^2}{2}}
+        f\brak{x} &= \int_{x}^{\infty}\frac{1}{\sqrt{2\pi}}\times e^{-\frac{x^2}{2}}
 \end{align}
-And the Q funtion is defined as,\\
+And the Q funtion is defined as\\
 \begin{align}
 	\qfunc{x}&=\pr{X>x}
 \end{align}
@@ -203,9 +201,10 @@ Upon computation for $Z=1.74604$\\
 	&=0.040402
 \end{align} 
 Therefore the Gaussian approximation for the given question is 0.040402\\
-\begin{figure}
-  \centering
-  \includegraphics{figs/main.png}
+\begin{figure}[h]
+\includegraphics[width=\columnwidth]{figs/main.png}
+\caption{Binomial vs guassian}
+\label{fig:BvG_py}
 \end{figure}
 \end{document}
  
