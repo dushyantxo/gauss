@@ -157,50 +157,48 @@ $X$ & $0 \le X \le 5$ & Number of correct questions \\
 \hline
 \end{tabular} 
 \end{table}\\
+X has binomial distribution with parameters\\
 \begin{align}
-	p&=\frac{1}{3}\\
-	n&=5
+	p=\frac{1}{3} ,\ n=5\\
 \end{align}
-\textbf{Binomial}
+Pmf of $X$ for $0 \leq k \leq 5$ is\\
+\begin{align}
+p_X(k)&=\comb{n}{k}p^k(1-p)^{n-k}\\
+\end{align}
+Probablity that 4 or more are correct\\
 \begin{align}
 	\implies P\brak{X\geq 4}&=\sum_{k=4}^{5}\comb{5}{k}\brak{\frac{1}{3}}^k\brak{\frac{2}{3}}^{5-k}\\
 	&=\frac{11}{243}\\
 	&=0.04526
 \end{align}
-\textbf{Gaussian}
-\begin{align}
-	X &\sim Bin\brak{n,p}\\
-	&\sim Bin\brak{5,\frac{1}{3}}
-\end{align}
+Let Y be a gaussian variable\\
 Mean and Varience of X are\\
 \begin{align}
 	\mu_X&=n\times p=\frac{5}{3}\\
 	\sigma^2_X&=np\brak{1-p}=\frac{10}{9}\\
 \end{align}
-Let, Z be a random variable with mean $\mu_Z=0$ and $\sigma_Z=1$ such that,\\
+Using normal distribution at $X \geq 4$\\
 \begin{align}
 	Z&\approx\frac{X-\mu_X +0.5}{\sigma_X}\\
 	&\approx 1.74604
 \end{align}
-0.5 is added for correction.\\Z converges to normal distribution for large value of n\\
+0.5 is added for correction.\\
+For pdf calculation
 \begin{align}
-        f\brak{x} &= \int_{x}^{\infty}\frac{1}{\sqrt{2\pi}}\times e^{-\frac{x^2}{2}}
+f_Y(x)&=\frac{1}{\sqrt{2\pi\sigma^2}}e^{-\frac{(x-\mu)^2}{2\sigma^2}}
 \end{align}
-And the Q funtion is defined as\\
 \begin{align}
-	\qfunc{x}&=\pr{X>x}
-\end{align}
-We need \\
-\begin{align}
-	\pr{Z<x}&=1-\pr{Z>x}\\
-	&=1-\qfunc{x}
+P\brak{Y\geq 4} &= 1-P\brak{Z=1.74604}\\ 
 \end{align}
 Upon computation for $Z=1.74604$\\
 \begin{align}
-	\pr{Z<1.74604}&=1-0.9596\\
+	P\brak{Y\geq 4} &=1-0.9596\\
 	&=0.040402
 \end{align} 
 Therefore the Gaussian approximation for the given question is 0.040402\\
+\begin{align}
+P_X \approx P_Y\\
+\end{align}
 \begin{figure}[h]
 \includegraphics[width=\columnwidth]{figs/main.png}
 \caption{Binomial vs guassian}
