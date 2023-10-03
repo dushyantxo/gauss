@@ -175,7 +175,14 @@ F_Y\brak{x} &= \pr{Y \le x}\\
 &= \pr{\frac{Y-\mu}{\sigma} \le \frac{X-\mu}{\sigma}}\\
 \frac{Y-\mu}{\sigma} &\sim \gauss{0}{1}\\
 &= 1-\pr{\frac{Y-\mu}{\sigma} > \frac{X-\mu}{\sigma}}\\
-&= 1-\qfunc{\frac{X-\mu}{\sigma}}
+\end{align}
+therefore the cdf will be:
+\begin{align}
+F_Y\brak{y} &= 
+\begin{cases}
+           1-\qfunc{ \frac{y-\mu}{\sigma}}, &  y \geq \mu \\
+           \qfunc{ \frac{\mu-y}{\sigma}} , &  y \leq \mu
+\end{cases}
 \end{align}
 \begin{enumerate}
 \item Without correction:
